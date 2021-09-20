@@ -19,10 +19,11 @@ const WithErrorHandler = (WrappedComponent, axios) => {
         }
       );
     }
-    componentWillUnmount() {
-      axios.interceptors.request.eject(this.reqInterceptor);
-      axios.interceptors.respose.eject(this.resInterceptor);
-    }
+    //This does not work for me........
+    // componentWillUnmount() {
+    //   axios.interceptors.request.eject(this.reqInterceptor);
+    //   axios.interceptors.respose.eject(this.resInterceptor);
+    // }
 
     // componentDidMount() {
     //   axios.interceptors.request.use((req) => {
@@ -44,7 +45,7 @@ const WithErrorHandler = (WrappedComponent, axios) => {
         <Auxx>
           <Modal
             show={this.state.error}
-            modalClosed={this.errorConfirmedHandler}
+            // modalClosed={this.errorConfirmedHandler}
           >
             {this.state.error ? this.state.error.message : null}
           </Modal>
